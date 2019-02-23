@@ -1,0 +1,256 @@
+<!-- ============================================================== -->
+<!-- Main wrapper - style you can find in pages.scss -->
+<!-- ============================================================== -->
+<div id="main-wrapper" [ngClass]="
+    {
+        'defaultdark': color == 'purple',
+        'greendark': color == 'greendark',
+        'reddark': color == 'reddark',
+        'bluedark': color == 'bluedark',
+        'purpledark': color == 'purpledark',
+        'megnadark': color == 'megnadark',
+        'default': color == 'default',
+        'green': color == 'green',
+        'red': color == 'red',
+        'blue': color == 'blue',
+        'purple': color == 'purple',
+        'megna': color == 'megna',
+        'mini-sidebar': showMinisidebar,
+        'dark-theme': showDarktheme,
+        'rtl-theme': showRtl   
+    }
+">
+    <!-- ============================================================== -->
+    <!-- Topbar header - style you can find in pages.scss -->
+    <!-- ============================================================== -->
+    <header class="topbar">
+        <nav class="navbar top-navbar navbar-expand-md navbar-light">
+            <!-- ============================================================== -->
+            <!-- Logo -->
+            <!-- ============================================================== -->
+            <div class="navbar-header">
+                <a class="navbar-brand" href="index.html">
+                    <!-- Logo icon --><b>
+                        <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
+                        <!-- Dark Logo icon -->
+                        <img src="assets/images/logo-icon.png" alt="homepage" class="dark-logo" />
+                        <!-- Light Logo icon -->
+                        <img src="assets/images/logo-light-icon.png" alt="homepage" class="light-logo" />
+                    </b>
+                    <!--End Logo icon -->
+                    <!-- Logo text --><span>
+                     <!-- dark Logo text -->
+                     <img src="assets/images/logo-text.png" alt="homepage" class="dark-logo" />
+                     <!-- Light Logo text -->    
+                     <img src="assets/images/logo-light-text.png" class="light-logo" alt="homepage" /></span> </a>
+            </div>
+            <!-- ============================================================== -->
+            <!-- End Logo -->
+            <!-- ============================================================== -->
+            <div class="navbar-collapse">
+                <app-navigation class="w-100" (toggleSidebar)="toggleSidebar()"></app-navigation>
+            </div>
+        </nav>
+    </header>
+    <!-- ============================================================== -->
+    <!-- Left Sidebar - style you can find in sidebar.scss  -->
+    <!-- ============================================================== -->
+    <aside class="left-sidebar">
+        <!-- Sidebar scroll-->
+        <div class="scroll-sidebar" [perfectScrollbar]="config">
+            <app-sidebar></app-sidebar>
+        </div>
+        <!-- End Sidebar scroll-->
+    </aside>
+    <!-- ============================================================== -->
+    <!-- End Left Sidebar - style you can find in sidebar.scss  -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- Page wrapper  -->
+    <!-- ============================================================== -->
+    <div class="page-wrapper">
+        <!-- ============================================================== -->
+        <!-- Container fluid  -->
+        <!-- ============================================================== -->
+        <div class="container-fluid">
+            <app-breadcrumb></app-breadcrumb>  
+            <!-- ============================================================== -->
+            <!-- Start Page Content -->
+            <!-- ============================================================== -->
+            <router-outlet></router-outlet>
+            <!-- ============================================================== -->
+            <!-- End Start Page Content -->
+            <!-- ============================================================== -->
+            <!-- ============================================================== -->
+            <!-- Setting Right sidebar -->
+            <!-- ============================================================== -->
+            <button *ngIf="false" class="right-side-toggle btn-inverse btn btn-circle btn-lg" (click)="showSettings = !showSettings"><i class="ti-settings text-white fa-spin"></i></button>
+            <div *ngIf="false" class="right-sidebar" [ngClass]="{'shw-rside': showSettings}">
+                <div class="slimscrollright">
+                    <div class="rpanel-title"> Settings <span><i class="ti-close right-side-toggle" (click)="showSettings = !showSettings"></i></span> </div>
+                    <div class="r-panel-body" [perfectScrollbar]="config">
+
+                        <ul>
+                            <li class="m-b-20 m-t-20"><b>Light Sidebar / Colors</b></li>
+                            <li>
+
+                                <div class="m-b-10">
+                                    <div class="custom-control custom-checkbox">
+                                      <input class="custom-control-input" id="customCheck1" name="radio-stacked" type="radio" value="default" [(ngModel)]="color">
+                                      <label class="custom-control-label" for="customCheck1">Default</label>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="m-b-10">
+
+                                    <div class="custom-control custom-checkbox">
+                                      <input class="custom-control-input" id="customCheck2" name="radio-stacked" type="radio" value="green" [(ngModel)]="color">
+                                      <label class="custom-control-label" for="customCheck2">Green</label>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="m-b-10">
+                                    <div class="custom-control custom-checkbox">
+                                      <input class="custom-control-input" id="customCheck3" name="radio-stacked" type="radio" value="red" [(ngModel)]="color">
+                                      <label class="custom-control-label" for="customCheck3">Red</label>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="m-b-10">
+
+                                    <div class="custom-control custom-checkbox">
+                                      <input class="custom-control-input" id="customCheck4" name="radio-stacked" type="radio" value="blue" [(ngModel)]="color">
+                                      <label class="custom-control-label" for="customCheck4">Blue</label>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="m-b-10">
+
+                                    <div class="custom-control custom-checkbox">
+                                      <input class="custom-control-input" id="customCheck5" name="radio-stacked" type="radio" value="purple" [(ngModel)]="color">
+                                      <label class="custom-control-label" for="customCheck5">Purple</label>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="m-b-10">
+                                    <div class="custom-control custom-checkbox">
+                                      <input class="custom-control-input" id="customCheck6" name="radio-stacked" type="radio" value="megna" [(ngModel)]="color">
+                                      <label class="custom-control-label" for="customCheck6">Megna</label>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                            <hr>
+                        <ul>
+                            <li class="m-b-20"><b>Dark Sidebar / Colors</b></li>
+                            <li>
+                                <div class="m-b-10">
+                                    <div class="custom-control custom-checkbox">
+                                      <input class="custom-control-input" id="customCheck7" name="radio-stacked" type="radio" value="defaultdark" [(ngModel)]="color">
+                                      <label class="custom-control-label" for="customCheck7">Default Dark</label>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="m-b-10">
+                                    <div class="custom-control custom-checkbox">
+                                      <input class="custom-control-input" id="customCheck8" name="radio-stacked" type="radio" value="greendark" [(ngModel)]="color">
+                                      <label class="custom-control-label" for="customCheck8">Green Dark</label>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="m-b-10">
+                                    <div class="custom-control custom-checkbox">
+                                      <input class="custom-control-input" id="customCheck9" name="radio-stacked" type="radio" value="reddark" [(ngModel)]="color">
+                                      <label class="custom-control-label" for="customCheck9">Red Dark</label>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="m-b-10">
+                                    <div class="custom-control custom-checkbox">
+                                      <input class="custom-control-input" id="customCheck10" name="radio-stacked" type="radio" value="bluedark" [(ngModel)]="color">
+                                      <label class="custom-control-label" for="customCheck10">Blue Dark</label>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="m-b-10">
+                                    <div class="custom-control custom-checkbox">
+                                      <input class="custom-control-input" id="customCheck11" name="radio-stacked" type="radio" value="purpledark" [(ngModel)]="color">
+                                      <label class="custom-control-label" for="customCheck11">Purple Dark</label>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="m-b-10">
+                                    <div class="custom-control custom-checkbox">
+                                      <input class="custom-control-input" id="customCheck12" name="radio-stacked" type="radio" value="megnadark" [(ngModel)]="color">
+                                      <label class="custom-control-label" for="customCheck12">Megna Dark</label>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                        <hr>
+                        <ul>
+                            <li class="m-b-20 m-t-20"><b>General Setting</b></li>
+                            <li>
+                                <div class="m-b-10">
+
+                                    <div class="custom-control custom-checkbox">
+                                      <input class="custom-control-input sidebartoggler" id="customCheck13" type="checkbox" [(ngModel)]="showMinisidebar">
+                                      <label class="custom-control-label" for="customCheck13">Mini Sidebar</label>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="m-b-10">
+
+                                    <div class="custom-control custom-checkbox">
+                                      <input class="custom-control-input" id="customCheck14" type="checkbox"  [(ngModel)]="showDarktheme">
+                                      <label class="custom-control-label" for="customCheck14">Dark Theme</label>
+                                    </div>
+
+                                </div>
+                            </li>
+                            <li>
+                                <div class="m-b-10">
+                                    <div class="custom-control custom-checkbox">
+                                        <input class="custom-control-input" id="customCheck145" type="checkbox" [(ngModel)]="showRtl">
+                                        <label class="custom-control-label" for="customCheck145">RTL Theme</label>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                        <hr>
+                    </div>
+                </div>
+            </div>
+            <!-- ============================================================== -->
+            <!-- End Right sidebar -->
+            <!-- ============================================================== -->
+        </div>
+        <!-- ============================================================== -->
+        <!-- End Container fluid  -->
+        <!-- ============================================================== -->
+    </div>
+    <!-- ============================================================== -->
+    <!-- End Page wrapper  -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- footer -->
+    <!-- ============================================================== -->
+    <footer class="footer">
+        © 2019 中山职业技术学院信息工程学院
+    </footer>
+    <!-- ============================================================== -->
+    <!-- End footer -->
+    <!-- ============================================================== -->
+
+</div>
